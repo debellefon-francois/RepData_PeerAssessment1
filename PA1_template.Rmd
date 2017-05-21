@@ -6,7 +6,6 @@ output:
   html_document: 
     fig_caption: yes
     keep_md: yes
-keep_md: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -16,9 +15,9 @@ library("dplyr")
 library("ggplot2")
 library("gridExtra")
 library("lattice")
-opts_knit$set(root.dir = "C:/Coursera/Reproduceable/Week2/repdata_data_activity")
 Sys.setenv(LANG = "en")
 Sys.setlocale("LC_ALL","English")
+R.options=list(max.print=30)
 ```
 
 #Loading and processing the data
@@ -102,7 +101,6 @@ for(i in 1:length(actWithoutNA$steps)){
     actWithoutNA$steps[i] <- int_mean$stepintmean[int_mean$interval == actWithoutNA$interval[i]]
   }
 }
-actWithoutNA
 ```
 
 ##Comparing results
@@ -159,7 +157,6 @@ Let's create a dataset indicating if a date is a weekday or weekend :
 actWithoutNAwkd <- actWithoutNA %>% mutate(wkd = weekdays(as.Date(date)))
 actWithoutNAwkd$wkd[actWithoutNAwkd$wkd %in% c("Monday","Tuesday","Wednesday","Thursday","Friday")] <- "weekday"
 actWithoutNAwkd$wkd[actWithoutNAwkd$wkd %in% c("Saturday","Sunday")] <- "weekend"
-actWithoutNAwkd
 ```
 
 ##Average number of steps taken per day, averaged across all week days and week end days
