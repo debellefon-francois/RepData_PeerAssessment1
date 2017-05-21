@@ -12,7 +12,6 @@ library("dplyr")
 library("ggplot2")
 library("gridExtra")
 library("lattice")
-opts_knit$set(root.dir = "C:/Coursera/Reproduceable/Week2/repdata_data_activity")
 Sys.setenv(LANG = "en")
 Sys.setlocale("LC_ALL","English")
 ```
